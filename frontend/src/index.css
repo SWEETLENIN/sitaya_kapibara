@@ -1,0 +1,162 @@
+body {
+  margin: 0;
+  font-family: 'Verdana';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: 'Courier New',
+    monospace;
+}
+
+.empty_wrapper{
+  position: sticky;
+  top: calc(50% - 81.5px);
+  left: calc(50% - 100px);
+}
+
+/*HEADERS STYLES - YAR*/
+
+.site-page-header-ghost-wrapper {
+  padding: 0px;
+  background-color: #FFFFFF;
+}
+/*
+.instructions {
+  margin-right: 100px;
+  font-size: 15px;
+}
+
+.User {
+  margin-right: 10px;
+  font-size: 15px;
+  text-decoration: underline;
+}
+
+.Administrator_console {
+  margin-right: 40px;
+  font-size: 15px;
+}
+
+.ButtonExitEnter{
+  width: 100px;
+  height: 50px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.ant-dropdown-menu-title-content{
+  font-size: 15px;
+}
+
+
+.Auth_form{
+  margin-top:15%;
+  margin-left:10px;
+}
+*/
+
+.SysEffectLogo{
+  font-size: 22px;
+  text-decoration: none;
+  color: #000000;
+}
+
+.margin-right-10 {
+  margin-right: 10px;
+}
+
+a:hover {
+  color: #0066A1;
+}
+
+.badge {
+  background-color: #909CAA;
+  color: white;
+  padding: 2px;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 9px;
+  margin-left: 5px;
+}
+
+
+
+/*Стили для объявлений*/
+.AdvertsforAuth{
+  padding:0px;
+  margin-left:15%;
+  width: 70%;
+}
+
+.Adverts{
+  padding:0px;
+  margin-left:25%;
+  width: 50%;
+}
+
+.AdvertsAdmin{
+  padding:0px;
+  margin-left:25%;
+  width: 75%;
+}
+
+
+.ant-card-body {
+  padding: 10px;
+  font-size:12px;
+}
+
+.ant-card-head-title{
+  text-align: left;
+}
+
+
+
+.titles-for-adverts{
+  text-align: center;
+  width:100%;
+  font-size: 14px;
+  font-weight: bold;
+  padding-top: 20px;
+}
+
+.text-for-adverts{
+  text-align:center;
+  margin-top: 5px;
+}
+
+.files-for-adverts{
+  text-align: center;
+  margin-top: 3px;
+  text-decoration: underline;
+}
+
+.ant-card.ant-card-bordered{
+  margin: 3px;
+}
+
+/*Стили для объявлений*/
+
+a.header-quick-access {
+  color: #000000;
+  font-weight: bold;
+}
+
+a.header-quick-access div{
+  color: #000000;
+  font-weight: bold;
+}
+
+a.header-quick-access:hover {
+  color: #0066A1;
+}
+
+a.header-quick-access:hover div{
+  color: #0066A1;
+}
+
+ul.ant-card-actions li {
+  margin: 0;
+}

@@ -1,0 +1,12 @@
+[Unit]
+Description=Uvicorn Daemon for fastapi
+After=network.target
+
+[Service]
+User=root
+Group=root
+WorkingDirectory=/webs/effect
+ExecStart=/webs/effect/venv/bin/uvicorn --host 0.0.0.0 --port 8000 backend.main:app --reload --log-config /webs/effect/uvicorn_log.ini
+
+[Install]
+WantedBy=multi-user.target

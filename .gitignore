@@ -1,0 +1,16 @@
+.idea
+backend/logs/*
+__pycache__
+test_reports
+files
+backend/docs
+backend/utils/excel/logs/*.txt*
+docs/db/replication/doc/*
+*.xlsx
+*.xls
+~$*
+*.xml
+node_modules
+venv
+test_messages
+tno_reports
