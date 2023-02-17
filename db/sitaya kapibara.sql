@@ -62,7 +62,7 @@ CREATE TABLE OrderRecord (
 CREATE TABLE Food (
   food_id serial primary key ,
   food_name varchar(30),
-  img blob,
+  img bytea,
   description text,
   price numeric
 );
