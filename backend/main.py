@@ -5,10 +5,10 @@ from .settings.db import db
 from .settings.pgauth import auth_db
 from .settings.file_config import FILE_CONFIG
 from .settings.smtp_config import SMTP_CONFIG
-from .routers.adverts import router as adverts_router
+from .routers.restaraunt import router as restaraunt_router
 
 app = FastAPI()
-app.include_router(adverts_router)
+app.include_router(restaraunt_router)
 
 
 app.add_middleware(
