@@ -9,40 +9,10 @@
 
 ## Вся документация представлена в [Wiki](https://github.com/SWEETLENIN/sitaya_kapibara/wiki)
 
-## Для того чтобы скопировать проект и работать сделать следующее
-1. Открыть PyCharm
-2. - Если открылось такое окно
-![img.png](images_for_readme/img.png)
-    - - то нажать get from VCS
-    - - Далее нажать Github ![img.png](images_for_readme/img_1.png)
-    - - Авторизовать через гитхаб
-    - - Далее выбрать как на картинке ниже и нажать clone ![img.png](images_for_readme/img_2.png)
-   - Если какой либо проект открыт, то вверхней панели нажать VCS
-   - И там найти пункт "get from Version control" и далее как и в пункте выше
-3. После открытия проекта видим примерно такое окно ![img.png](images_for_readme/img_3.png)
-Чтобы создать новую ветку и что-то начать в ней писать нажимаем в нижнем правом углу следующий значок(на скриншоте в красном квадрате)
-![img.png](images_for_readme/img_4.png)
-4. Видим такое и нажимаем ЛКМ по main ![img.png](images_for_readme/img_5.png)
-5. Нажимаем "New Branch from main"
-6. Называем ветку с функционалом, который будет выполняться в ней и нажимаем create
-7. Все можно работать!
+## [Инструкции](https://github.com/SWEETLENIN/sitaya_kapibara/wiki/%D0%98%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D0%B8%D0%B8) представлены так же в [Wiki](https://github.com/SWEETLENIN/sitaya_kapibara/wiki)
 
-## Создание виртуальной переменной и установка нужных библиотек
-1. Открываем проект в Pycharm
-2. Открываем File->Settings->Project->Python Interpreter
-3. Нажимаем на шестеренку и добавляем новую виртуальную среду (все поля заполняются по дефолту).
-4. Виртуальная среда должна быть расположена в папке venv. Указать новый Python Interpreter, указав python из папки venv\Scripts
-5. В терминале Pycharm перед директорией проекта должно быть указано (venv). Если venv отсутствует - зайти в File->Settings->Tools->Terminal и в Shell path указать cmd.exe, после чего перезапустить Pycharm
-7. Для установки модулей надо перейти в папку backend cd backend и выполнить команду: pip install -r requirements.txt
+### - [Копирование проекта](https://github.com/SWEETLENIN/sitaya_kapibara/wiki/%D0%98%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D0%B8%D0%B8#%D0%B4%D0%BB%D1%8F-%D1%82%D0%BE%D0%B3%D0%BE-%D1%87%D1%82%D0%BE%D0%B1%D1%8B-%D1%81%D0%BA%D0%BE%D0%BF%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C-%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82-%D0%B8-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%D1%82%D1%8C-%D1%81%D0%B4%D0%B5%D0%BB%D0%B0%D1%82%D1%8C-%D1%81%D0%BB%D0%B5%D0%B4%D1%83%D1%8E%D1%89%D0%B5%D0%B5)
 
-## Для того чтобы запушить изменения делаем следующее ![img.png](images_for_readme/img_6.png)
-1. Нажимаем на "commit" далее отмечаем галочками то что мы хотим закомитить
-2. Нажимаем "commit", если хотим еще добавить какие то коммиты, или "commit and push" есл закоммитили уже все что хотели и готовы пушить
-3. Далее проверяем все ли верно мы пушим, если да, то как на скриншоте не должны быть, ![img.png](images_for_readme/img_7.png)т.к. пушить в мейн мы не можем чисто по политикам безопасности. Если все ок, то нажимаем пуш
-4. Далее идем на гитхаб
-5. Переходим в репозиторий проекта
-6. И видим следующую надпись ![img.png](images_for_readme/img_8.png)
-7. Нажимаем "compare&pull request"
-8. В поле title записываем название пул реквеста, т.е. краткое описание того что делали в данной ветке(например: добавление бэка админки) ![img.png](images_for_readme/img_9.png)
-9. В leave a comment описание по желанию и нажимаем create pull request
-10. Если хотим что то еще дописывать в этой ветке до мерджа в мейн, то можем просто пушим с пайчарма и все.
+### - [Создание виртуальной среды и загрузка библиотек](https://github.com/SWEETLENIN/sitaya_kapibara/wiki/%D0%98%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D0%B8%D0%B8#%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D0%B2%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B9-%D0%BF%D0%B5%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D0%BE%D0%B9-%D0%B8-%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0-%D0%BD%D1%83%D0%B6%D0%BD%D1%8B%D1%85-%D0%B1%D0%B8%D0%B1%D0%BB%D0%B8%D0%BE%D1%82%D0%B5%D0%BA)
+
+### - [Как запушить изменения?](https://github.com/SWEETLENIN/sitaya_kapibara/wiki/%D0%98%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D0%B8%D0%B8#%D0%B4%D0%BB%D1%8F-%D1%82%D0%BE%D0%B3%D0%BE-%D1%87%D1%82%D0%BE%D0%B1%D1%8B-%D0%B7%D0%B0%D0%BF%D1%83%D1%88%D0%B8%D1%82%D1%8C-%D0%B8%D0%B7%D0%BC%D0%B5%D0%BD%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B4%D0%B5%D0%BB%D0%B0%D0%B5%D0%BC-%D1%81%D0%BB%D0%B5%D0%B4%D1%83%D1%8E%D1%89%D0%B5%D0%B5)
