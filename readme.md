@@ -2,10 +2,13 @@
 Учебный проект по программной инженерии
 
 ## Командна:
-- Архипова Е
-- Филатова Анна
-- Корнеев Ярослав
-- Данилов Юрий 
+ - Корнеев Ярослав *([yar.korneev@gmail.com](mailto:yar.korneev@gmail.com))*
+
+ - Данилов Юрий *([yuradan0903@gmail.com](mailto:yuradan0903@gmail.com))*
+
+ - Архипова Екатерина *([katya.arkhlpova3@gmail.com](mailto:katya.arkhlpova3@gmail.com))*
+
+ - Филатова Анна *([anna.filatova1337@gmail.com](mailto:anna.filatova1337@gmail.com))*
 
 ## Вся документация представлена в [Wiki](https://github.com/SWEETLENIN/sitaya_kapibara/wiki)
 
