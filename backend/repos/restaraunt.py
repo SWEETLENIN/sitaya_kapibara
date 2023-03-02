@@ -6,6 +6,7 @@ from ..models.restaraunt import restaraunt
 from ..schemas import restaraunt as sch
 from ..settings.db import db
 from sqlalchemy import select, insert, delete, update, and_, func
+
 logger = logging.getLogger(f'app.{__name__}')
 
 
@@ -26,15 +27,37 @@ class RestarauntRepo:
     #     )
     #     return await db.execute(query)
 
-
     @classmethod
     async def get_restaraunts(cls):
         query = (
-            select(restaraunt)
+            select(restaraunt).order_by(restaraunt.c.restaraunt_id.asc())
         )
         return await db.fetch_all(query)
 
+    @classmethod
+    async def create_restaraunt(cls, restaraunt_item):
+        query = (insert(restaraunt).values(**restaraunt_item.dict()))
+        return await db.execute(query)
 
+    @classmethod
+    async def get_restaraunt_by_id(cls, restaraunt_id):
+        query = (select(restaraunt).where(restaraunt.c.restaraunt_id == restaraunt_id))
+        return await db.fetch_one(query)
+
+    @classmethod
+    async def change_rest_info(cls, rest_id, rest_item):
+        query = (update(restaraunt).where(restaraunt.c.restaraunt_id == rest_id).values(**rest_item.dict()))
+        return await db.execute(query)
+
+    @classmethod
+    async def get_count(cls):
+        base_select = (select([func.count()]).select_from(restaraunt))
+        return await db.fetch_one(base_select)
+
+    @classmethod
+    async def delete_restaraunt(cls, rest_id):
+        query = (delete(restaraunt).where(restaraunt.c.restaraunt_id == rest_id))
+        await db.execute(query)
     # @classmethod
     # async def find_by_id(cls, adverts_id):
     #     query = (

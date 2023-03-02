@@ -7,59 +7,58 @@ from uuid import UUID
 
 class RestarauntBase(BaseModel):
     city: str
-    street:str
+    street: str
     building: str
     number_of_seats: int
     work_time: str
 
-    # @validator('city', 'street', 'building', 'work_time')
-    # def check_city_length(cls, city, street, building, work_time):
-    #     """
-    #         Проверка на длину city. city не может быть длиннее чем 30 символов.
-    #     """
-    #     length_limit_1 = 30
-    #     length_limit_2 = 5
-    #     length_limit_3 = 11
-    #     if len(city) > length_limit_1:
-    #         raise ValueError(f"city не может быть длиннее чем {length_limit_1} символов")
-    #     if len(street) > length_limit_1:
-    #         raise ValueError(f"city не может быть длиннее чем {length_limit_1} символов")
-    #     if len(building) > length_limit_2:
-    #         raise ValueError(f"city не может быть длиннее чем {length_limit_2} символов")
-    #     if len(work_time) > length_limit_3:
-    #         raise ValueError(f"work_time не может быть длиннее чем {length_limit_3} символов")
-    #     return city, street, building, work_time
+
+class RestarauntUpdate(RestarauntBase):
+    pass
 
 
-    # @validator('street')
-    # def check_city_length(cls, street):
-    #     """
-    #         Проверка на длину street. street не может быть длиннее чем 30 символов.
-    #     """
-    #     length_limit = 30
-    #     if len(street) > length_limit:
-    #         raise ValueError(f"city не может быть длиннее чем {length_limit} символов")
-    #     return street\
-    #
-    # @validator('building')
-    # def check_building_length(cls, building):
-    #     """
-    #         Проверка на длину building. building не может быть длиннее чем 30 символов.
-    #     """
-    #     length_limit = 30
-    #     if len(building) > length_limit:
-    #         raise ValueError(f"city не может быть длиннее чем {length_limit} символов")
-    #     return building
-    #
-    # @validator('work_time')
-    # def check_worktime_length(cls, work_time):
-    #     """
-    #         Проверка на длину work_time. work_time не может быть длиннее чем 30 символов.
-    #     """
-    #     length_limit = 30
-    #     if len(work_time) > length_limit:
-    #         raise ValueError(f"city не может быть длиннее чем {length_limit} символов")
-    #     return work_time
+class RestarauntCreate(RestarauntBase):
+    pass
+
+    @validator('city')
+    def check_city_length(cls, city):
+        """
+            Проверка на длину city. city не может быть длиннее чем 30 символов.
+        """
+        length_limit = 30
+        if len(city) > length_limit:
+            raise ValueError(f"city не может быть длиннее чем {length_limit} символов")
+        return city
+
+    @validator('street')
+    def check_street_length(cls, street):
+        """
+            Проверка на длину street. street не может быть длиннее чем 30 символов.
+        """
+        length_limit = 30
+        if len(street) > length_limit:
+            raise ValueError(f"street не может быть длиннее чем {length_limit} символов")
+        return street
+
+    @validator('building')
+    def check_building_length(cls, building):
+        """
+            Проверка на длину building. building не может быть длиннее чем 30 символов.
+        """
+        length_limit = 5
+        if len(building) > length_limit:
+            raise ValueError(f"building не может быть длиннее чем {length_limit} символов")
+        return building
+
+    @validator('work_time')
+    def check_worktime_length(cls, work_time):
+        """
+            Проверка на длину work_time. work_time не может быть длиннее чем 30 символов.
+        """
+        length_limit = 11
+        if len(work_time) > length_limit:
+            raise ValueError(f"work_time не может быть длиннее чем {length_limit} символов")
+        return work_time
 
 
 # class AdvertsUpdate(AdvertsBase):
@@ -118,7 +117,6 @@ class RestarauntBase(BaseModel):
 
 class RestarauntResponse(RestarauntBase):
     restaraunt_id: int
-
 
 # class AdvertFiles(BaseModel):
 #     advert_fk: int

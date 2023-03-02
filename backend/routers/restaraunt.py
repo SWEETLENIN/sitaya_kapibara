@@ -12,6 +12,31 @@ logger = logging.getLogger(f'app.{__name__}')
 async def get_restaraunts():
     return await RestarauntService.get_restaraunts()
 
+
+@router.post("", response_model=sch.RestarauntResponse)
+async def create_restaraunt(restaraunt_item: sch.RestarauntCreate):
+    return await RestarauntService.create_restaraunt(restaraunt_item)
+
+@router.get("/count")
+async def get_count_of_restaraunt():
+    return await RestarauntService.get_count_of_restaraunt()
+
+
+@router.get("/{rest_id}", response_model=sch.RestarauntResponse)
+async def get_rest_by_id(rest_id):
+    return await RestarauntService.get_restaraunt_by_id(int(rest_id))
+
+
+@router.put("/{rest_id}")
+async def change_restaraunt_info(rest_id, rest_item: sch.RestarauntUpdate):
+    return await RestarauntService.change_restaraunt_info(int(rest_id), rest_item)
+
+
+@router.delete("/{rest_id}", status_code=204)
+async def delete_restaraunt(rest_id):
+    return await RestarauntService.delete_restaraunt(int(rest_id))
+
+
 #
 # @router.post("", response_model=sch.AdvertsResponse, status_code=201)
 # async def create_advert(advert_item: sch.AdvertsCreate, admin_info: auth_sch.UserInfo = Depends(ud.get_admin)):
