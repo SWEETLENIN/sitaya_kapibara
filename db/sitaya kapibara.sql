@@ -59,12 +59,18 @@ CREATE TABLE OrderRecord (
   FOREIGN KEY (employee_fk) REFERENCES Employee ON DELETE SET NULL
 );
 
+CREATE TABLE Files(
+  file_id UUID primary key,
+  file BYTEA
+);
+
 CREATE TABLE Food (
   food_id serial primary key ,
   food_name varchar(30),
-  img bytea,
+  file_fk UUID,
   description text,
   price numeric
+  FOREIGN KEY (file_fk) REFERENCES Files ON DELETE SET NULL
 );
 
 CREATE TABLE Ingridients (
