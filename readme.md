@@ -1,7 +1,7 @@
 # Сытая капибара
 Учебный проект по программной инженерии
 
-## Командна:
+## КомандНа:
  - Корнеев Ярослав *([yar.korneev@gmail.com](mailto:yar.korneev@gmail.com))*
 
  - Данилов Юрий *([yuradan0903@gmail.com](mailto:yuradan0903@gmail.com))*
