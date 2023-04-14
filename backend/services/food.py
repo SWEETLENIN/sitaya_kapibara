@@ -12,7 +12,7 @@ class FoodService:
 
     @classmethod
     async def get_foods(cls):
-        return await FoodRepo.get_foods()
+        return await FoodRepo.get_food()
 
     @classmethod
     async def get_food_by_id(cls, food_id):
