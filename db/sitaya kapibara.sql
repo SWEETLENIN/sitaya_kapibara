@@ -1,11 +1,12 @@
-CREATE TABLE Customer (
-  customer_id serial primary key ,
+CREATE TABLE users (
+  user_id serial primary key ,
   username varchar(50),
   password varchar(24),
   firstname varchar(30),
   surname varchar(30),
   email varchar(50),
-  telephone varchar(12)
+  telephone varchar(12),
+  roles VARCHAR(8) ARRAY
 );
 
 CREATE TABLE Restaraunt (
@@ -27,7 +28,7 @@ CREATE TABLE RestarauntSeat (
 
 CREATE TABLE ReservationRecord (
   ReseravationRecord UUID primary key ,
-  Customer_fk int,
+  user_fk int,
   Restaraunt_fk int,
   Date timestamp,
   FOREIGN KEY (Customer_fk) REFERENCES Customer ON DELETE CASCADE,
@@ -52,11 +53,11 @@ CREATE TABLE OrderRecord (
   OrderRecord_id UUID primary key,
   Customer_fk int,
   Restaraunt_fk int,
-  employee_fk int,
+  user_fk int,
   order_time timestamp,
   FOREIGN KEY (Customer_fk) REFERENCES Customer ON DELETE SET NULL,
   FOREIGN KEY (Restaraunt_fk) REFERENCES Restaraunt ON DELETE SET NULL,
-  FOREIGN KEY (employee_fk) REFERENCES Employee ON DELETE SET NULL
+  FOREIGN KEY (user_fk) REFERENCES Employee ON DELETE SET NULL
 );
 
 CREATE TABLE Files(
