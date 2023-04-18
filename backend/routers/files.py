@@ -13,14 +13,14 @@ async def create_file(file: UploadFile):
     return await FileService.create_file(file)
 
 
-@router.post("/several", response_model=List[sch.FileResponse])
-async def create_files(files: List[UploadFile]):
-    return await FileService.create_files(files)
-
-
 @router.get("", response_model=List[sch.FileFull])
 async def get_files_info(page: int = 0, size: int = 20):
     return await FileService.get_files_info(page, size)
+
+
+@router.post("/several", response_model=List[sch.FileResponse])
+async def create_files(files: List[UploadFile]):
+    return await FileService.create_files(files)
 
 
 @router.get("/count")
