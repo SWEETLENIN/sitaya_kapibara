@@ -1,13 +1,14 @@
-import sqlalchemy as sql
-from ..settings.db import metadata
-import sqlalchemy.dialects.postgresql as pg
+from sqlalchemy import Table, Column, Integer, String, ForeignKey, MetaData, VARCHAR, TEXT, NUMERIC
+from sqlalchemy.dialects.postgresql import UUID
 
-food = sql.Table(
+metadata = MetaData()
+food = Table(
     "food",
     metadata,
-    sql.Column("food_id", sql.Integer, primary_key=True),
-    sql.Column("food_name", sql.VARCHAR(30)),
-    sql.Column("file_fk", pg.UUID),
-    sql.Column("description", sql.Text),
-    sql.Column("price", sql.Numeric)
+    Column("food_id", Integer, primary_key=True),
+    Column("food_name", VARCHAR(30)),
+    Column("file_fk", UUID),
+    Column("description", TEXT),
+    Column("price", NUMERIC)
+
 )
