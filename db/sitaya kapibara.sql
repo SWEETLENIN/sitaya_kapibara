@@ -61,7 +61,16 @@ CREATE TABLE OrderRecord (
 
 CREATE TABLE Files(
   file_id UUID primary key,
-  file BYTEA
+  file_name VARCHAR(150),
+  ext VARCHAR(8),
+  size BIGINT,
+  type VARCHAR(100),
+  description TEXT,
+  creator_email VARCHAR(50),
+  editor_email VARCHAR(50),
+  create_time TIMESTAMP,
+  edit_time TIMESTAMP,
+  file_data BYTEA
 );
 
 CREATE TABLE Food (
