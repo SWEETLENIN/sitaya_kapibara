@@ -69,7 +69,7 @@ CREATE TABLE Food (
   food_name varchar(30),
   file_fk UUID,
   description text,
-  price numeric
+  price numeric,
   FOREIGN KEY (file_fk) REFERENCES Files ON DELETE SET NULL
 );
 
