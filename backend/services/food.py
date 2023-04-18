@@ -37,8 +37,7 @@ class FoodService:
     @classmethod
     async def get_count_of_food(cls):
         record = await FoodRepo.get_count()
-        count = record[0]
-        return {"food_count": count}
+        return {"food_count": record}
 
     @classmethod
     async def delete_food(cls, food_id):
