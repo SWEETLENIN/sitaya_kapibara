@@ -13,7 +13,7 @@ class FoodRepo:
     @classmethod
     async def get_food(cls):
         query = (
-            select(food).order_by(food.c.food_id.asc())
+            select(food).order_by(food.c.kitchen_fk.asc())
         )
         return await db.fetch_all(query)
 
