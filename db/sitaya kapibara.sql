@@ -85,17 +85,17 @@ CREATE TABLE Food (
   FOREIGN KEY (kitchen_fk) REFERENCES Kitchen ON DELETE SET NULL
 );
 
-CREATE TABLE Ingridients (
-  ingridients_id serial primary key,
+CREATE TABLE Ingredients (
+  ingredients_id serial primary key,
   name varchar(30)
 );
 
-CREATE TABLE Food_ingridients (
+CREATE TABLE Food_ingredients (
   Food_fk int,
-  Ingridient_fk int,
-  PRIMARY KEY (Food_fk, Ingridient_fk),
+  Ingredient_fk int,
+  PRIMARY KEY (Food_fk, Ingredient_fk),
   FOREIGN KEY (Food_fk) REFERENCES Food ON DELETE CASCADE,
-  FOREIGN KEY (Ingridient_fk) REFERENCES Ingridients ON DELETE CASCADE
+  FOREIGN KEY (Ingredient_fk) REFERENCES Ingredients ON DELETE CASCADE
 );
 
 CREATE TABLE Food_OrderRecord (
