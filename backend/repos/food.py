@@ -61,3 +61,10 @@ class FoodRepo:
             delete(food).where(food.c.food_id == food_id)
         )
         return await db.execute(query)
+
+    @classmethod
+    async def get_food_for_kitchen(cls, kitchen_fk: int):
+        query = (
+            select(food).where(food.c.kitchen_fk == kitchen_fk)
+        )
+        return await db.fetch_all(query)

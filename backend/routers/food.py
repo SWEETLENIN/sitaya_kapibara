@@ -36,3 +36,8 @@ async def change_food_info(food_id: int, food_item: food_sch.FoodUpdate):
 @router.delete("/{food_id}", status_code=204)
 async def delete_food(food_id: int):
     return await FoodService.delete_food(food_id)
+
+
+@router.get("/by_kitchen/{kitchen_fk}")
+async def get_food_by_kitchen(kitchen_fk):
+    return await FoodService.get_food_for_kitchen(kitchen_fk)

@@ -9,6 +9,6 @@ food = Table(
     Column("food_name", VARCHAR(30)),
     Column("file_fk", UUID),
     Column("description", TEXT),
-    Column("price", NUMERIC)
-
+    Column("price", NUMERIC),
+    Column("kitchen_fk", Integer)
 )

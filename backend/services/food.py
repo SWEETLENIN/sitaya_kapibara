@@ -42,3 +42,7 @@ class FoodService:
     @classmethod
     async def delete_food(cls, food_id):
         return await FoodRepo.delete_food(food_id)
+
+    @classmethod
+    async def get_food_for_kitchen(cls, kitchen_fk):
+        return await FoodRepo.get_food_for_kitchen(kitchen_fk)
