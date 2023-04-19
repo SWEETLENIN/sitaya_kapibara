@@ -3,14 +3,13 @@ import Greetings from "./Greetings.js";
 import LoginForm from "./LoginForm.js";
 import AlreadyAuthed from "./AlreadyAuthed.js";
 import QuickAccess from "./QuickAccess.js";
-import AdvertsForAuth from "../adverts/AdvertsForAuth.js";
 
 const EntryPage = ({auth}) => {
 
   return (
       <Row>
         <Col span={14}>
-          <AdvertsForAuth/>
+
         </Col>
 
         <Col span={8}>
