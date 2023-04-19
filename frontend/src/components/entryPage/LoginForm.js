@@ -17,7 +17,7 @@ const LoginForm = ({auth}) => {
     const res = await auth.loginUser(values);
     if (res && res.success) {
       setErrMsg(null);
-      navigate("/menu");
+      // navigate("/menu");
     } else {
       const detail =  res?.error.detail;
       setErrMsg(
@@ -60,23 +60,11 @@ const LoginForm = ({auth}) => {
             placeholder="Пароль"
           />
         </Form.Item>
-        <div style={{textAlign: "right"}}>
-          <Link href={discor_link} target='_blank'>
-            Забыли пароль?
-          </Link>
-        </div>
 
         <Form.Item>
           <Button htmlType="submit">
             Войти
           </Button>
-            <Text> или </Text>
-          <Link
-            target='_blank'
-            href="http://msk-asoz-02.msk.oao.rzd/1240/Request.aspx?roleID=8"
-          >
-              зарегистрироваться!
-          </Link>
         </Form.Item>
       </Form>
     </Card>

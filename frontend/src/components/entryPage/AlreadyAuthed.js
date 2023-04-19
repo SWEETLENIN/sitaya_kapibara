@@ -7,7 +7,7 @@ const AlreadyAuthed = ({auth}) => {
 
   return (
     <Card>
-      <Title level={4}>Вы уже вошли как "{auth.token.login}"</Title>
+      <Title level={4}>Вы уже вошли как "{auth.token.username}"</Title>
       <LogoutLinkButton auth={auth}/>
     </Card>
   )

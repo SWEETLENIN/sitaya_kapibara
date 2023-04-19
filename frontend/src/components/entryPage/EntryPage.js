@@ -2,7 +2,6 @@ import {Col, Row} from "antd";
 import Greetings from "./Greetings.js";
 import LoginForm from "./LoginForm.js";
 import AlreadyAuthed from "./AlreadyAuthed.js";
-import QuickAccess from "./QuickAccess.js";
 
 const EntryPage = ({auth}) => {
 
@@ -19,7 +18,6 @@ const EntryPage = ({auth}) => {
               ? <AlreadyAuthed auth={auth}/>
               : <LoginForm auth={auth}/>
           }
-          <QuickAccess/>
         </Col>
         <Col span={2}></Col>
       </Row>

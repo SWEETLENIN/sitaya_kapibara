@@ -1,14 +1,20 @@
 import {Link} from 'react-router-dom';
+import {Divider} from "antd";
 
-const TreeMenuLink = () => (
-  <Link className='header-quick-access' to="/menu">Дерево меню</Link>
+const KatalogLink = () => (
+  <Link className='header-quick-access' to="/">Каталог</Link>
 );
 
-const AdvertsLink = () => (
-  <Link className='header-quick-access' to="/adverts">Объявления</Link>
+const AboutLink = () => (
+  <Link className='header-quick-access' to="/">О нас</Link>
+);
+
+const ConstactsLink = () => (
+    <Link className='header-quick-access' to="/">Контакты</Link>
 );
 
 
-const topQuickAccessArray = [<TreeMenuLink/>, <AdvertsLink/>];
+const topQuickAccessArray = [<Divider type='vertical'/>, <KatalogLink/>, <Divider type='vertical'/>,
+    <AboutLink/>, <Divider type='vertical'/>,<ConstactsLink/>, <Divider type='vertical'/>];
 
 export default topQuickAccessArray;

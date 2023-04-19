@@ -1,9 +1,9 @@
 import {Link} from "react-router-dom";
 
-const EffectLogo = () => (
+const SKText = () => (
     <Link to="/" className="SysEffectLogo">
-      СИС ЭФФЕКТ НП
+      Сытая капибара
     </Link>
 );
 
-export default EffectLogo;
+export default SKText;

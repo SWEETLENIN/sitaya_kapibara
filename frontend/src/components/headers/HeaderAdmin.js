@@ -1,6 +1,6 @@
 import {PageHeader} from 'antd';
-import AvatarRZD from "./common/AvatarRZD";
-import EffectLogo from "./common/EffectLogo.js";
+import AvatarSK from "./common/AvatarSK";
+import SKText from "./common/SKText.js";
 import LogoutLinkButton from "./common/LogoutLinkButton";
 import UserLoginInfo from "./common/UserLoginInfo";
 import topQuickAccessArray from './common/TopQuickAccess';
@@ -10,10 +10,9 @@ import DropdownAdmConsole from "./admconsole/DropdownAdmConsole";
 
 const HeaderAdmin = ({auth}) => (
         <PageHeader
-            title={[<AvatarRZD/>, <EffectLogo/>]}
+            title={[<AvatarSK/>, <SKText/>,...topQuickAccessArray]}
             extra={[
                 <DropdownAdmConsole/>,
-                ...topQuickAccessArray,
                 <UserLoginInfo auth={auth}/>,
                 <LogoutLinkButton auth={auth}/>
             ]}

@@ -1,7 +1,6 @@
 import HeaderAdmin from './HeaderAdmin';
 import HeaderUser from './HeaderUser';
 import HeaderGuest from './HeaderGuest';
-import HeaderUserAdmin from './HeaderUserAdmin';
 import {useNavigate} from 'react-router-dom';
 
 const HeaderCustom = ({auth}) => {
@@ -17,7 +16,6 @@ const HeaderCustom = ({auth}) => {
       if (!roles) return (<HeaderGuest/>);
       checkAuth(auth);
       if (roles.includes('ADMIN')) return (<HeaderAdmin auth={auth}/>);
-      if (roles.includes('USER_ADMIN')) return (<HeaderUserAdmin auth={auth}/>);
       if (roles.includes('USER')) return (<HeaderUser auth={auth}/>);
       return (<HeaderGuest/>);
     };
