@@ -6,9 +6,14 @@ from .settings.pgauth import auth_db
 from .settings.file_config import FILE_CONFIG
 from .settings.smtp_config import SMTP_CONFIG
 from .routers.restaraunt import router as restaraunt_router
+from .routers import ingredients
+
+
+
 
 app = FastAPI()
 app.include_router(restaraunt_router)
+app.include_router(ingredients.router)
 
 
 app.add_middleware(
