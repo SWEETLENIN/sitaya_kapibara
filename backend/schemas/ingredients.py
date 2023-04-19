@@ -12,3 +12,7 @@ class IngredientUpdate(IngredientBase):
 
 class IngredientResponse(IngredientBase):
     ingredients_id: int
+
+class FoodIngredientCreate(BaseModel):
+    food_fk: int
+    ingredient_fk: int

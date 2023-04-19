@@ -32,7 +32,9 @@ async def get_ingredients_by_food_id(food_id: int):
     return await IngredientsService.get_ingredients_by_food_id(food_id)
 
 @router.post("/food_ingredient")
-async def add_food_ingredient(food_fk: int, ingredient_fk: int):
-    return await IngredientsService.add_food_ingredient(food_fk, ingredient_fk)
+async def add_food_ingredient(food_ingredient: sch.FoodIngredientCreate):
+    return await IngredientsService.add_food_ingredient(
+        food_ingredient.food_fk, food_ingredient.ingredient_fk
+    )
 
 
