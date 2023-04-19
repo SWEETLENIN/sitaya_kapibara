@@ -1,0 +1,189 @@
+{
+	"info": {
+		"_postman_id": "bed62623-7bfa-45ff-9b82-941fdc46c9f6",
+		"name": "effect-files",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "file",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/STALIN/Downloads/Banks.txt"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/api/v1/files",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"files"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "files",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "files",
+							"type": "file",
+							"src": [
+								"/C:/Users/STALIN/Downloads/Banks.txt",
+								"/C:/Users/STALIN/Downloads/Calculate.txt",
+								"/C:/Users/STALIN/Downloads/Credit.txt"
+							]
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/api/v1/files/several",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"files",
+						"several"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "files by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/api/v1/files/1cb1e321-1ac1-4866-831a-e25c38d528a2",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"files",
+						"1cb1e321-1ac1-4866-831a-e25c38d528a2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "files count",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/api/v1/files/count",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"files",
+						"count"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "files",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/api/v1/files/8673ecd2-1e05-4dd5-b485-e3f22d2a313b",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"files",
+						"8673ecd2-1e05-4dd5-b485-e3f22d2a313b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "files by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/api/v1/files/8673ecd2-1e05-4dd5-b485-e3f22d2a313b",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"files",
+						"8673ecd2-1e05-4dd5-b485-e3f22d2a313b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "files by id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/oup_PodshivalovAP/Downloads/ЦОММ-2016_ЧТЗ.docx"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/api/v1/files/8673ecd2-1e05-4dd5-b485-e3f22d2a313b",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"files",
+						"8673ecd2-1e05-4dd5-b485-e3f22d2a313b"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

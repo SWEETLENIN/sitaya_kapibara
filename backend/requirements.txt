@@ -27,4 +27,4 @@ SQLAlchemy==1.4.39
 starlette==0.19.1
 typing_extensions==4.3.0
 uvicorn==0.18.2
-XlsxWriter==3.0.6
+uuid
