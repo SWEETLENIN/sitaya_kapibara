@@ -80,7 +80,9 @@ CREATE TABLE Food (
   file_fk UUID,
   description text,
   price numeric,
+  kitchen_fk int,
   FOREIGN KEY (file_fk) REFERENCES Files ON DELETE SET NULL
+  FOREIGN KEY (kitchen_fk) REFERENCES Kitchen ON DELETE SET NULL
 );
 
 CREATE TABLE Ingridients (
@@ -102,4 +104,9 @@ CREATE TABLE Food_OrderRecord (
     PRIMARY KEY (Food_fk, OrderRecord_fk),
     FOREIGN KEY (Food_fk) REFERENCES Food ON DELETE CASCADE,
     FOREIGN KEY  (OrderRecord_fk) references OrderRecord ON DELETE CASCADE
+);
+
+CREATE TABLE Kitchen(
+	kitchen_id serial primary key,
+	name VARCHAR(50)
 );
