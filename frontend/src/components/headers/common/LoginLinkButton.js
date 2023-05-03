@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 
 
 const LoginLinkButton = () => (
-      <Link to='/'>
+      <Link to='/auth'>
         <Button icon={<PoweroffOutlined />} >
           Вход
         </Button>

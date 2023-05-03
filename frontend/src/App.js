@@ -12,6 +12,7 @@ import useToken from './hooks/useToken';
 import NotAuthed from "./components/NotAuthed";
 import NotFound from "./components/NotFound";
 import Food from "./components/food/Food";
+import MainPage from "./components/mainPage/MainPage";
 
 const {Content} = Layout
 
@@ -35,7 +36,13 @@ function App() {
             <Route
               path="/"
               exact
-              element={<EntryPage auth={auth}/>}
+              // element={<EntryPage auth={auth}/>}
+              element={<MainPage/>}
+            />
+            <Route
+                path="/auth"
+                exact
+                element={<EntryPage auth={auth}/>}
             />
             <Route
               path="/food"
