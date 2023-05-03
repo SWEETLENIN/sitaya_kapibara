@@ -11,6 +11,8 @@ class Config {
   PROM_ADDRESS = `${this.SCHEME}://${this.PROM_HOST}/`;
   TOKEN_URL = `${this.BASE_PATH}auth/token`;
   ADVERTS_URL = `${this.BASE_PATH}adverts`;
+  FOOD_URL = `${this.BASE_PATH}food`;
+  FILE_URL = `${this.BASE_PATH}files`;
   ACCESS_TOKEN = "access_token";
   EXPIRATION = "expiration";
 

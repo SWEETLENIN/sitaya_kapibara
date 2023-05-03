@@ -4,6 +4,9 @@ from fastapi import HTTPException
 from ..schemas import food as food_sch
 from ..repos.food import FoodRepo
 import datetime
+from ..repos.files import FileRepo
+from .files import FileService
+from ..settings.file_config import FILE_CONFIG
 
 logger = logging.getLogger(f'app.{__name__}')
 
@@ -46,3 +49,14 @@ class FoodService:
     @classmethod
     async def get_food_for_kitchen(cls, kitchen_fk):
         return await FoodRepo.get_food_for_kitchen(kitchen_fk)
+
+    @classmethod
+    async def get_food_pic(cls, file_id_str):
+        file_path = FILE_CONFIG.path.joinpath(file_id_str)
+        if not file_path.exists():
+            logger.debug(f"Файла {file_id_str} нет во временном хранилище. Получаем из базы.")
+            file_data = await FileRepo.get_file_data_by_id(file_id_str)
+            file_path.write_bytes(file_data[0])
+        return file_path
+        # file_path=FileService.get_file_with_path(file_fk)
+        # return file_path

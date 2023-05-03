@@ -39,5 +39,10 @@ async def delete_food(food_id: int):
 
 
 @router.get("/by_kitchen/{kitchen_fk}")
-async def get_food_by_kitchen(kitchen_fk):
+async def get_food_by_kitchen(kitchen_fk: int):
     return await FoodService.get_food_for_kitchen(kitchen_fk)
+
+
+@router.get("/for_food/{file_fk}")
+async def get_food_pic(file_fk: str):
+    return await FoodService.get_food_pic(file_fk)

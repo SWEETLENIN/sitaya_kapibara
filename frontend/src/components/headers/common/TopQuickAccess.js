@@ -2,7 +2,7 @@ import {Link} from 'react-router-dom';
 import {Divider} from "antd";
 
 const KatalogLink = () => (
-  <Link className='header-quick-access' to="/">Каталог</Link>
+  <Link className='header-quick-access' to="/food">Каталог</Link>
 );
 
 const AboutLink = () => (
