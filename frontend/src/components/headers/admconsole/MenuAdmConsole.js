@@ -6,7 +6,7 @@ const MenuAdmConsole = () => (
       items={[
           {
               key: "Corr_menu",
-              label: (<Link to="/admin/menu">Корректировка блюд</Link>)
+              label: (<Link to="/admin/food">Корректировка блюд</Link>)
           },
 
       ]}

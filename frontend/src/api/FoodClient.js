@@ -41,15 +41,35 @@ export default class FoodClient {
             null
         )
     }
-    //
-    // async createAdvert(newAdvert) {
-    //     return await commonFetch(
-    //         this.config.ADVERTS_URL,
-    //         'POST',
-    //         this.config.headersWithAuthorization(),
-    //         JSON.stringify(newAdvert)
-    //     );
-    // }
+
+    async deleteFood(food_id){
+        return await deleteFetch(
+            `${this.config.FOOD_URL}/${food_id}`,
+            'DELETE',
+            this.config.defaultHeaders(),
+            null
+        )
+    }
+
+    async createFood(newFood) {
+        return await commonFetch(
+            `${this.config.FOOD_URL}/`,
+            'POST',
+            this.config.defaultHeaders(),
+            JSON.stringify(newFood)
+        );
+    }
+
+    async editFood(editedFood) {
+        return await commonFetch(
+            `${this.config.FOOD_URL}/${editedFood['food_id']}`,
+            'PUT',
+            this.config.defaultHeaders(),
+            JSON.stringify({"food_name": editedFood['food_name'], "file_fk": editedFood['file_fk'],
+                "description": editedFood['description'], "price": editedFood['price'], "kitchen_fk": editedFood['kitchen_fk']})
+        )
+    }
+
     //
     // async delAdvert(advert_id) {
     //     return await deleteFetch(
@@ -68,14 +88,7 @@ export default class FoodClient {
     //     );
     // }
     //
-    // async editAdvert(editedAdvert) {
-    //     return await commonFetch(
-    //         `${this.config.ADVERTS_URL}/${editedAdvert['advert_id']}`,
-    //         'PUT',
-    //         this.config.headersWithAuthorization(),
-    //         JSON.stringify({"menu_fk": editedAdvert['menu_fk'], "message": editedAdvert['message'], "advert_title": editedAdvert['advert_title'], "files": editedAdvert['files']})
-    //     )
-    // }
+
     //
     // async sendMail(advert_id, user_ids, message){
     //     return await commonFetch(
