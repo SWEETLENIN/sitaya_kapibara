@@ -46,7 +46,9 @@ CREATE TABLE Employee (
     employee_name varchar(30),
     employee_surname varchar(30),
     position int,
-    FOREIGN KEY (position) REFERENCES Positions ON DELETE SET NULL
+    file_fk UUID,
+    FOREIGN KEY (position) REFERENCES Positions ON DELETE SET NULL,
+    FOREIGN KEY (file_fk) REFERENCES Files ON DELETE SET NULL
 );
 
 CREATE TABLE OrderRecord (
