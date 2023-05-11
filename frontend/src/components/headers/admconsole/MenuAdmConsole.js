@@ -8,6 +8,10 @@ const MenuAdmConsole = () => (
               key: "Corr_menu",
               label: (<Link to="/admin/food">Корректировка блюд</Link>)
           },
+          {
+              key: "Corr_rest",
+              label: (<Link to="/admin/rest">Корректировка ресторанов</Link>)
+          },
 
       ]}
   />
