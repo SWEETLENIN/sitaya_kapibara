@@ -13,6 +13,7 @@ class Config {
   ADVERTS_URL = `${this.BASE_PATH}adverts`;
   FOOD_URL = `${this.BASE_PATH}food`;
   FILE_URL = `${this.BASE_PATH}files`;
+  RESTARAUNT_URL = `${this.BASE_PATH}restaraunt`;
   ACCESS_TOKEN = "access_token";
   EXPIRATION = "expiration";
 

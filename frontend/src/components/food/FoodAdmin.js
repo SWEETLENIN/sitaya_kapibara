@@ -11,8 +11,6 @@ const {Title} = Typography;
 const { Meta } = Card;
 
 
-
-
 const FoodAdmin = () => {
     const [food, setFood] = useState([]);
     const [foodCount, setFoodCount] = useState([]);

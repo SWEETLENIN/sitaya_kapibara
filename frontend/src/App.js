@@ -14,6 +14,7 @@ import NotFound from "./components/NotFound";
 import Food from "./components/food/Food";
 import MainPage from "./components/mainPage/MainPage";
 import FoodAdmin from "./components/food/FoodAdmin";
+import RestarauntAdmin from "./components/restaraunts/RestarauntAdmin";
 
 const {Content} = Layout
 
@@ -57,7 +58,7 @@ function App() {
                 token?.roles != null && token.roles.includes('ADMIN')
                 ? <Route path="/admin">
                     <Route index={false} path="food" element={<FoodAdmin/>}/>
-                    {/*<Route index={false} path="monitoring" element={<FactIncomes/>}/>*/}
+                    <Route index={false} path="rest" element={<RestarauntAdmin/>}/>
                     {/*<Route index={false} path="reports" element={<Reports/>}/>*/}
                     {/*<Route index={false} path="mailinglist" element={<MailingList/>}/>*/}
                     {/*<Route index={false} path="workgroups" element={<WorkGroupAdmin/>}/>*/}
