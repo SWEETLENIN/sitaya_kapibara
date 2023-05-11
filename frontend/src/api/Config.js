@@ -14,6 +14,7 @@ class Config {
   FOOD_URL = `${this.BASE_PATH}food`;
   FILE_URL = `${this.BASE_PATH}files`;
   RESTARAUNT_URL = `${this.BASE_PATH}restaraunt`;
+  EMPLOYEE_URL = `${this.BASE_PATH}employee`;
   ACCESS_TOKEN = "access_token";
   EXPIRATION = "expiration";
 

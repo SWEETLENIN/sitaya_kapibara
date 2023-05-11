@@ -23,7 +23,7 @@ const RestForm = ({edit, add, form, restForEdit, modalCond}) => {
                 form={form}
             >
                 <Form.Item
-                    name="rest_id"
+                    name="restaraunt_id"
                     hidden={true}
                 >
                     <Input/>
@@ -82,7 +82,7 @@ const RestForm = ({edit, add, form, restForEdit, modalCond}) => {
                             message: 'Укажите кол-во мест',
                         }]}
                 >
-                    <InputNumber min={1} step="10"/>
+                    <InputNumber min={1} max={500} step="10"/>
                 </Form.Item>
                 <Form.Item
                     label="Рабочее время:"

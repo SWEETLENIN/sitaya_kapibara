@@ -10,7 +10,7 @@ const AboutLink = () => (
 );
 
 const ConstactsLink = () => (
-    <Link className='header-quick-access' to="/">Контакты</Link>
+    <Link className='header-quick-access' to="/contacts">Контакты</Link>
 );
 
 

@@ -1,14 +1,14 @@
 import Config from "./Config";
 import { commonFetch, deleteFetch } from "../helpers/fetchers";
 
-export default class RestarauntClient {
+export default class EmployeeClient {
     constructor() {
         this.config = new Config();
     }
 
-    async getRestaraunt() {
+    async getEmplyees() {
         return await commonFetch(
-            `${this.config.RESTARAUNT_URL}`,
+            `${this.config.EMPLOYEE_URL}`,
             'GET',
             this.config.defaultHeaders(),
             null
@@ -46,7 +46,7 @@ export default class RestarauntClient {
 
     async editRest(editedRest) {
         return await commonFetch(
-            `${this.config.RESTARAUNT_URL}/${editedRest['restaraunt_id']}`,
+            `${this.config.FOOD_URL}/${editedRest['rest_id']}`,
             'PUT',
             this.config.defaultHeaders(),
             JSON.stringify({"city": editedRest['city'], "street": editedRest['street'],

@@ -15,6 +15,7 @@ import Food from "./components/food/Food";
 import MainPage from "./components/mainPage/MainPage";
 import FoodAdmin from "./components/food/FoodAdmin";
 import RestarauntAdmin from "./components/restaraunts/RestarauntAdmin";
+import Contacts from "./components/contacts/Contacts";
 
 const {Content} = Layout
 
@@ -52,7 +53,12 @@ function App() {
               // element={<EntryPage auth={auth}/>}
               element={<Food/>}
             />
-
+            <Route
+                path="/contacts"
+                exact
+                // element={<EntryPage auth={auth}/>}
+                element={<Contacts/>}
+            />
             <>
               {
                 token?.roles != null && token.roles.includes('ADMIN')

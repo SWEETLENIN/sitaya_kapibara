@@ -86,7 +86,7 @@ const RestarauntAdmin = () => {
         }
         message.success("Успешно изменено")
         setRestaraunt(origin => origin.map(item => {
-            if (item['rest_id'] === values['rest_id']) {
+            if (item['restaraunt_id'] === values['restaraunt_id']) {
                 return {...item, ...values};
             }
             return item;
