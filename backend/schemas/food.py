@@ -13,7 +13,6 @@ class FoodBase(BaseModel):
     kitchen_fk: Optional[int]
 
 
-
 class FoodUpdate(FoodBase):
     pass
 
@@ -57,3 +56,8 @@ class FoodCreate(FoodBase):
 
 class FoodResponse(FoodBase):
     food_id: int
+
+
+class FoodByIdsAndCount(BaseModel):
+    id: int
+    count: int

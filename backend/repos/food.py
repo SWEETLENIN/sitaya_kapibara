@@ -68,3 +68,10 @@ class FoodRepo:
             select(food).where(food.c.kitchen_fk == kitchen_fk)
         )
         return await db.fetch_all(query)
+
+    @classmethod
+    async def get_food_by_ids(cls, food_ids: List):
+        query = (
+            select(food.c.food_id, food.c.food_name, food.c.price).where(food.c.food_id.in_(food_ids))
+        )
+        return await db.fetch_all(query)

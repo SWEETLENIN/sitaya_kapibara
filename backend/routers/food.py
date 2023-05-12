@@ -43,6 +43,11 @@ async def get_food_by_kitchen(kitchen_fk: int):
     return await FoodService.get_food_for_kitchen(kitchen_fk)
 
 
+@router.get("/for_cart/by_ids")
+async def get_food_by_ids(ids_n_count: List[food_sch.FoodByIdsAndCount]):
+    return await FoodService.get_food_by_ids(ids_n_count)
+
+
 @router.get("/for_food/{file_fk}")
 async def get_food_pic(file_fk: str):
     return await FoodService.get_food_pic(file_fk)

@@ -60,3 +60,10 @@ class FoodService:
         return file_path
         # file_path=FileService.get_file_with_path(file_fk)
         # return file_path
+
+    @classmethod
+    async def get_food_by_ids(cls, file_ids_and_count):
+        food_ids = []
+        for foods in file_ids_and_count:
+            food_ids.append(foods.id)
+        return await FoodRepo.get_food_by_ids(food_ids)

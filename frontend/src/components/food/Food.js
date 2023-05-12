@@ -78,11 +78,12 @@ const Food = () => {
 
     const getFoodCardByKitchen = (food, kitchen_name) => {
         return (food.map(foodElem => <>
-                {/*<Badge.Ribbon text={kitchen_name} color='red' placement='end'>*/}
+                <Badge.Ribbon text={`${foodElem['price']} руб.`} color='blue' placement='end'>
                     <Card size='small' key={foodElem['food_id']} actions={[
                         <Button>
                             Добавить
                         </Button>
+
                     ]}
                           cover={
                               <img
@@ -99,10 +100,16 @@ const Food = () => {
                           }}>
                         <Meta
                             title={foodElem['food_name']}
-                            description={foodElem['description']}
+                            description={
+                                <>
+                                    {foodElem['description']}
+                                    <br/>
+                                    <br/>
+
+                                </>}
                         />
                     </Card>
-                {/*</Badge.Ribbon>*/}
+                </Badge.Ribbon>
         </>))
     }
 
