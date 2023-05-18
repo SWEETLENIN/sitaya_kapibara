@@ -17,7 +17,7 @@ const LoginForm = ({auth}) => {
     const res = await auth.loginUser(values);
     if (res && res.success) {
       setErrMsg(null);
-      // navigate("/menu");
+      navigate("/");
     } else {
       const detail =  res?.error.detail;
       setErrMsg(

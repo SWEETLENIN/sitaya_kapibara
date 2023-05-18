@@ -1,7 +1,12 @@
-import {Pagination, Spin, Typography, Badge, message, Card, Col, Row, Button, Divider, Avatar, Image} from "antd";
+import {
+    Pagination, Spin, Typography, Badge, message, Card, Col,
+    Row, Button, Divider, Avatar, Image, List, Modal, Form, Input
+} from "antd";
 import {useEffect, useState} from 'react';
 import FoodClient from "../../api/FoodClient";
 import FileClient from "../../api/FileClient";
+import {ShoppingCartOutlined} from "@ant-design/icons";
+import timeMomentToStr from "../../helpers/timeMomentToStr";
 
 const {Title} = Typography;
 const { Meta } = Card;
@@ -15,6 +20,13 @@ const Food = () => {
     const [foodSib, setFoodSib] = useState([]);
     const [foodPrib, setFoodPrib] = useState([]);
     const [foodCount, setFoodCount] = useState([]);
+    const [foodInCart, setFoodInCart] = useState([]);
+    const [countCart, setCountCart] = useState(0);
+    const [cartIsOpen, setCartIsOpen] = useState(false);
+    const [isPlaceOrderOpen, setIsPlaceOrderOpen] = useState(false);
+    const [isSuccessWindowOpen, setIsSuccessWindowOpen] = useState(false);
+    const [form] = Form.useForm();
+
 
 
     const foodClient=new FoodClient();
@@ -80,7 +92,10 @@ const Food = () => {
         return (food.map(foodElem => <>
                 <Badge.Ribbon text={`${foodElem['price']} руб.`} color='blue' placement='end'>
                     <Card size='small' key={foodElem['food_id']} actions={[
-                        <Button>
+                        <Button onClick={() =>{
+                            setFoodInCart(oldArray => [...oldArray, foodElem]);
+                            setCountCart(foodInCart.length+1);
+                        }}>
                             Добавить
                         </Button>
 
@@ -111,6 +126,43 @@ const Food = () => {
                     </Card>
                 </Badge.Ribbon>
         </>))
+    }
+
+    const getCartItems = (foods) =>{
+        return(foods.map(foodElem=>
+                <>
+                    <List>
+                        <List.Item>
+                                <Avatar size={64} src={foodElem.file_fk
+                                    ? `http://localhost:8000/api/v1/files/${foodElem.file_fk}`
+                                    : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSddZhgstwlbS72tVE48PuxqZwsglqpJdsj3A&usqp=CAU"}
+                                />
+                                <Divider type='vertical'/>
+                                <Col>
+                                    <Row>
+                                        {foodElem['food_name']}
+                                    </Row>
+                                    <Row>
+                                        {foodElem['description']}
+                                    </Row>
+                                </Col>
+                                <Divider type='vertical'/>
+                                <Col>
+                                    <Row>
+                                        Цена
+                                    </Row>
+                                    <Row>
+                                        {foodElem['price']}
+                                    </Row>
+                                </Col>
+
+                        </List.Item>
+                    </List>
+                    <Divider type='horizontal'/>
+                </>
+            )
+        )
+
     }
 
     return (
@@ -171,6 +223,20 @@ const Food = () => {
                                     {getFoodCardByKitchen(foodPrib, 'Прибалтика')}
                                 </Row>
                             </Col>
+                            <Col>
+                                <Button onClick={()=> {
+                                    if(countCart<=0){
+                                        message.error("Корзина пустая", 2)
+                                    }
+                                    else{
+                                        setCartIsOpen(true);
+                                    }
+                                }}>
+                                    <Badge count={countCart} showZero>
+                                        <ShoppingCartOutlined style={{fontSize:'30px', paddingBottom:'3px'}}/>
+                                    </Badge>
+                                </Button>
+                            </Col>
                         </Row>
                     </>
                     :
@@ -178,6 +244,102 @@ const Food = () => {
                         <Spin tip="Загрузка..."/>
                     </>
             }
+            <Modal visible={cartIsOpen} footer={null}
+                   onCancel={() => {
+                       setCartIsOpen(false);
+                   }}>
+                {getCartItems(foodInCart)}
+                <Button type='primary' onClick={()=>{
+                    // message.success('Успешно оформлено')
+                    setCartIsOpen(false);
+                    setIsPlaceOrderOpen(true);
+                }}>
+                    Оформить
+                </Button>
+            </Modal>
+            <Modal visible={isPlaceOrderOpen} footer={null}
+                   onCancel={() => {
+                       setIsPlaceOrderOpen(false);
+                       setCartIsOpen(true);
+                   }}
+                   form={form}>
+                <Form form={form}
+                      onFinish={(values) => {
+                          //Функция отправки
+                          message.success("Успешно оформлено")
+                          setIsPlaceOrderOpen(false);
+                          setIsSuccessWindowOpen(true);
+                          form.resetFields();
+                      }}>
+                    <Form.Item
+                        label="email"
+                        name="user_email"
+                        rules={[
+                            {
+                                required: true,
+                                message: 'Введите город',
+                            }]}
+                    >
+                        <Input/>
+                    </Form.Item>
+                    <Form.Item
+                        label="ФИО"
+                        name="user_name"
+                        rules={[
+                            {
+                                required: true,
+                                message: 'Введите город',
+                            },
+                            ]}
+                    >
+                        <Input/>
+                    </Form.Item>
+                    <Form.Item
+                        label="Телефон"
+                        name="user_phone"
+                    >
+                        <Input/>
+                    </Form.Item>
+                    <Form.Item
+                        label="Адрес"
+                        name="user_address"
+                        rules={[
+                            {
+                                required: true,
+                                message: 'Введите город',
+                            },
+                        ]}
+                    >
+                        <Input/>
+                    </Form.Item>
+                    <Form.Item
+                        wrapperCol={{offset: 18, span: 16,}}
+                    >
+                        <Button type="primary" htmlType="submit">
+                            Оформить
+                        </Button>
+                    </Form.Item>
+                </Form>
+            </Modal>
+            <Modal visible={isSuccessWindowOpen}
+                   onCancel={() => {
+                       setFoodInCart([]);
+                       setCountCart(0);
+                       setIsSuccessWindowOpen(false);
+                   }}
+                   footer={null}
+            >
+                <div style={{fontSize:'50px'}}>
+                    ЗАКАЗ УСПЕШНО ОФОРМЛЕН
+                </div>
+                <Button onClick={()=>{
+                    setFoodInCart([]);
+                    setCountCart(0);
+                    setIsSuccessWindowOpen(false);
+                }}>
+                    OK
+                </Button>
+            </Modal>
         </>
     );
 };
