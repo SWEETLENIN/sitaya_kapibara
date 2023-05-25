@@ -12,6 +12,7 @@ from .routers.files import router as files_router
 from .routers.auth import router as auth_router
 from .routers.kitchen import router as kitchen_router
 from .routers.employee import router as employee_router
+from .routers.order import router as order_router
 
 
 app = FastAPI()
@@ -22,6 +23,7 @@ app.include_router(files_router)
 app.include_router(auth_router)
 app.include_router(kitchen_router)
 app.include_router(employee_router)
+app.include_router(order_router)
 
 
 app.add_middleware(

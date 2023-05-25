@@ -5,6 +5,7 @@ import {
 import {useEffect, useState} from 'react';
 import FoodClient from "../../api/FoodClient";
 import FileClient from "../../api/FileClient";
+import OrderClient from "../../api/OrderClient";
 import {ShoppingCartOutlined} from "@ant-design/icons";
 import timeMomentToStr from "../../helpers/timeMomentToStr";
 
@@ -31,6 +32,7 @@ const Food = () => {
 
     const foodClient=new FoodClient();
     const fileClient=new FileClient();
+    const orderClient=new OrderClient();
 
     const getFoodByKitchen = async (kitched_id)=>{
         const response = await foodClient.getFoodByKitchen(kitched_id)
@@ -155,7 +157,6 @@ const Food = () => {
                                         {foodElem['price']}
                                     </Row>
                                 </Col>
-
                         </List.Item>
                     </List>
                     <Divider type='horizontal'/>
@@ -163,6 +164,19 @@ const Food = () => {
             )
         )
 
+    }
+
+    const getCartTotalPrice = (foods) =>{
+        let totalSum=0
+        foods.map(foodElem=>
+            totalSum=totalSum+foodElem['price']
+        )
+        return totalSum
+    }
+
+
+    const sendOrderToUser = async (user_info, food_info) => {
+        await orderClient.sendEmailToUser(user_info, food_info);
     }
 
     return (
@@ -249,8 +263,9 @@ const Food = () => {
                        setCartIsOpen(false);
                    }}>
                 {getCartItems(foodInCart)}
+                Итоговая сумма: {getCartTotalPrice(foodInCart)}
+                <Divider type='horizontal'/>
                 <Button type='primary' onClick={()=>{
-                    // message.success('Успешно оформлено')
                     setCartIsOpen(false);
                     setIsPlaceOrderOpen(true);
                 }}>
@@ -265,11 +280,14 @@ const Food = () => {
                    form={form}>
                 <Form form={form}
                       onFinish={(values) => {
+                          values['food']=foodInCart
+                          sendOrderToUser(values)
+                          // console.log(values)
                           //Функция отправки
-                          message.success("Успешно оформлено")
-                          setIsPlaceOrderOpen(false);
-                          setIsSuccessWindowOpen(true);
-                          form.resetFields();
+                          // message.success("Успешно оформлено")
+                          // setIsPlaceOrderOpen(false);
+                          // setIsSuccessWindowOpen(true);
+                          // form.resetFields();
                       }}>
                     <Form.Item
                         label="email"

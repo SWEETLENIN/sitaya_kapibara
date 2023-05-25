@@ -15,6 +15,7 @@ class Config {
   FILE_URL = `${this.BASE_PATH}files`;
   RESTARAUNT_URL = `${this.BASE_PATH}restaraunt`;
   EMPLOYEE_URL = `${this.BASE_PATH}employee`;
+  ORDER_URL = `${this.BASE_PATH}order`;
   ACCESS_TOKEN = "access_token";
   EXPIRATION = "expiration";
 
