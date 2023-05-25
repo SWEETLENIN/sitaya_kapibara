@@ -176,7 +176,14 @@ const Food = () => {
 
 
     const sendOrderToUser = async (user_info, food_info) => {
-        await orderClient.sendEmailToUser(user_info, food_info);
+        const response = await orderClient.sendEmailToUser(user_info, food_info);
+        if (!response.success) {
+            return message.error('Ошибка оформления');
+        }
+        setIsPlaceOrderOpen(false);
+        setIsSuccessWindowOpen(true);
+        form.resetFields();
+        return message.success("Успешно оформлено")
     }
 
     return (
@@ -282,12 +289,6 @@ const Food = () => {
                       onFinish={(values) => {
                           values['food']=foodInCart
                           sendOrderToUser(values)
-                          // console.log(values)
-                          //Функция отправки
-                          // message.success("Успешно оформлено")
-                          // setIsPlaceOrderOpen(false);
-                          // setIsSuccessWindowOpen(true);
-                          // form.resetFields();
                       }}>
                     <Form.Item
                         label="email"
